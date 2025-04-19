@@ -7,11 +7,60 @@
     <meta name="description" content="Pronostics football premium avec taux de réussite exceptionnel. Rejoignez notre communauté exclusive pour des prédictions gagnantes.">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .animate-fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        .animate-slide-up {
+            animation: slideInUp 1s ease-out;
+        }
+        .countdown {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00c853, #009624);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .stats-card {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 200, 83, 0.1), rgba(0, 150, 36, 0.1));
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        .stats-card:hover::before {
+            opacity: 1;
+        }
+        .stats-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #00c853, #009624);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
 </head>
 <body class="dark-theme">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <i class="fas fa-futbol me-2"></i>ProPredict
@@ -63,30 +112,30 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Nos Résultats</h2>
+            <h2 class="text-center mb-5 section-title">Nos Résultats</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card bg-dark text-white h-100">
+                    <div class="card stats-card h-100">
                         <div class="card-body text-center">
-                            <i class="fas fa-chart-line fa-3x mb-3 text-success"></i>
+                            <i class="fas fa-chart-line"></i>
                             <h3 class="card-title">85% de Réussite</h3>
                             <p class="card-text">Sur les 50 derniers pronostics</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card bg-dark text-white h-100">
+                    <div class="card stats-card h-100">
                         <div class="card-body text-center">
-                            <i class="fas fa-euro-sign fa-3x mb-3 text-success"></i>
+                            <i class="fas fa-euro-sign"></i>
                             <h3 class="card-title">+2,500€</h3>
                             <p class="card-text">Profit mensuel moyen</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card bg-dark text-white h-100">
+                    <div class="card stats-card h-100">
                         <div class="card-body text-center">
-                            <i class="fas fa-users fa-3x mb-3 text-success"></i>
+                            <i class="fas fa-users"></i>
                             <h3 class="card-title">500+ Membres</h3>
                             <p class="card-text">Communauté active</p>
                         </div>
@@ -99,37 +148,33 @@
     <!-- Football Predictions Section -->
     <section id="football-predictions" class="py-5 bg-dark">
         <div class="container">
-            <h2 class="text-center mb-5">Pronostics Football</h2>
+            <h2 class="text-center mb-5 section-title">Pronostics Football</h2>
             <div class="row">
                 <!-- Morning Predictions -->
                 <div class="col-md-6 mb-4">
-                    <div class="card bg-dark text-white border-success">
-                        <div class="card-header bg-success">
+                    <div class="card">
+                        <div class="card-header">
                             <h3 class="mb-0">Pronostics du Matin</h3>
                         </div>
                         <div class="card-body">
                             <div id="morning-predictions">
                                 <!-- Les pronostics du matin seront chargés ici -->
                             </div>
-                            <div class="text-center mt-3">
-                                <p>Prochaine mise à jour dans : <span id="morning-countdown">00:00</span></p>
-                            </div>
+
                         </div>
                     </div>
                 </div>
                 <!-- Evening Predictions -->
                 <div class="col-md-6 mb-4">
-                    <div class="card bg-dark text-white border-success">
-                        <div class="card-header bg-success">
+                    <div class="card">
+                        <div class="card-header">
                             <h3 class="mb-0">Pronostics du Soir</h3>
                         </div>
                         <div class="card-body">
                             <div id="evening-predictions">
                                 <!-- Les pronostics du soir seront chargés ici -->
                             </div>
-                            <div class="text-center mt-3">
-                                <p>Prochaine mise à jour dans : <span id="evening-countdown">00:00</span></p>
-                            </div>
+                           
                         </div>
                     </div>
                 </div>
@@ -161,18 +206,18 @@
     </section>
 
     <!-- Aviator Live Section -->
-    <section id="aviator" class="py-5 bg-dark">
+    <section id="aviator" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Aviator Live Predictions</h2>
+            <h2 class="text-center mb-5 section-title">Aviator Live Predictions</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
-                    <div class="card bg-dark text-white border-success">
+                    <div class="card">
                         <div class="card-body text-center">
                             <h3 class="mb-4">Prochaine Prédiction</h3>
                             <div class="prediction-display">
-                                <span class="display-1 text-success" id="prediction-value">2.45x</span>
+                                <span class="display-1" id="prediction-value">2.45x</span>
                             </div>
-                            <p class="mt-3 text-muted">Mise à jour dans : <span id="countdown">00:30</span></p>
+                            <p class="mt-3 text-muted">Mise à jour dans : <span id="countdown" class="countdown">00:30</span></p>
                         </div>
                     </div>
                 </div>
@@ -181,22 +226,22 @@
     </section>
 
     <!-- Premium Access Section -->
-    <section id="premium" class="py-5">
+    <section id="premium" class="py-5 bg-dark">
         <div class="container">
-            <h2 class="text-center mb-5">Accès Premium</h2>
+            <h2 class="text-center mb-5 section-title">Accès Premium</h2>
             <div class="row justify-content-center">
                 <div class="col-md-6">
-                    <div class="card bg-dark text-white">
+                    <div class="card">
                         <div class="card-body text-center">
                             <h3 class="card-title">Abonnement Premium</h3>
                             <p class="display-4 mb-4">10€</p>
                             <ul class="list-unstyled mb-4">
-                                <li><i class="fas fa-check text-success me-2"></i>Accès aux pronostics VIP</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Support personnalisé</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Accès aux canaux privés</li>
-                                <li><i class="fas fa-check text-success me-2"></i>Analyses détaillées</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Accès aux pronostics VIP</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Support personnalisé</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Accès aux canaux privés</li>
+                                <li class="mb-3"><i class="fas fa-check text-success me-2"></i>Analyses détaillées</li>
                             </ul>
-                            <a href="pages/payment.html" class="btn btn-success btn-lg">S'abonner</a>
+                            <a href="payment.html" class="btn btn-success btn-lg">S'abonner</a>
                         </div>
                     </div>
                 </div>
@@ -205,24 +250,25 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-dark">
+    <section id="contact" class="py-5">
         <div class="container">
-            <h2 class="text-center mb-5">Contactez-nous</h2>
+            <h2 class="text-center mb-5 section-title">Contactez-nous</h2>
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="social-links text-center mb-4">
-                        <a href="#" class="btn btn-outline-light me-2"><i class="fab fa-telegram"></i> Telegram</a>
-                        <a href="#" class="btn btn-outline-light me-2"><i class="fab fa-discord"></i> Discord</a>
-                        <a href="#" class="btn btn-outline-light"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        <a href="https://t.me/lppronos10" class="btn btn-outline-light me-2" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+                        <a href="https://chat.whatsapp.com/GAaVFvL8BZTLR9dzzj9Mij" class="btn btn-outline-light" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                     </div>
-                    <form id="contact-form">
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Votre email" required>
+                    <form id="contact-form" class="card">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Votre email" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Votre message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success w-100">Envoyer</button>
                         </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="4" placeholder="Votre message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success w-100">Envoyer</button>
                     </form>
                 </div>
             </div>
@@ -238,6 +284,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        // Compte à rebours pour Aviator
+        function startCountdown() {
+            let timeLeft = 30;
+            const countdownElement = document.getElementById('countdown');
+            
+            const timer = setInterval(() => {
+                timeLeft--;
+                countdownElement.textContent = timeLeft.toString().padStart(2, '0');
+                
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    // Générer une nouvelle prédiction
+                    const newPrediction = (Math.random() * 2 + 1).toFixed(2);
+                    document.getElementById('prediction-value').textContent = newPrediction + 'x';
+                    // Redémarrer le compte à rebours
+                    setTimeout(startCountdown, 1000);
+                }
+            }, 1000);
+        }
+
+        // Démarrer le compte à rebours au chargement de la page
+        document.addEventListener('DOMContentLoaded', startCountdown);
+    </script>
 </body>
 </html> 
