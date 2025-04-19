@@ -1,0 +1,44 @@
+{
+    "morning_predictions": {
+        "current": {
+            "value": "2.15x",
+            "timestamp": "2024-03-20T08:00:00",
+            "confidence": "85%"
+        },
+        "history": [
+            {
+                "date": "2024-03-19",
+                "value": "2.30x",
+                "result": "win",
+                "confidence": "82%"
+            },
+            {
+                "date": "2024-03-18",
+                "value": "1.95x",
+                "result": "win",
+                "confidence": "78%"
+            }
+        ]
+    },
+    "evening_predictions": {
+        "current": {
+            "value": "2.45x",
+            "timestamp": "2024-03-20T20:00:00",
+            "confidence": "88%"
+        },
+        "history": [
+            {
+                "date": "2024-03-19",
+                "value": "2.10x",
+                "result": "win",
+                "confidence": "85%"
+            },
+            {
+                "date": "2024-03-18",
+                "value": "2.25x",
+                "result": "win",
+                "confidence": "80%"
+            }
+        ]
+    }
+} 
